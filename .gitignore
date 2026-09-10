@@ -1,0 +1,6 @@
+# 検討過程の記録。wireframe.htmlには非公開方針の人物名の記載が残るため、
+# Publicリポジトリには含めない（CLAUDE.md 7章参照）
+wireframe.html
+design-directions/
+
+.DS_Store

@@ -1,0 +1,138 @@
+/* ===========================================================
+   3rd Stage 公式LP - base.css
+   リセット / CSS変数（配色・書体・余白・部品の規則）
+
+   配色はLP専用の例外設定。3rd Stage全体のブランドカラー
+   （紺 #1A1A6E / 生成り白 #FBFAF6）とは異なる。ロゴ画像自体は
+   原本の #1A1A6E のまま（意図的な選択。詳細は CLAUDE.md 参照）。
+
+   余白・書体階層・部品の規則（角丸8px等）は design canvas の
+   採用案（B案）に基づく。
+   =========================================================== */
+
+:root {
+  /* ---- LP専用配色 ---- */
+  --color-navy: #16233F;
+  --color-cream: #F0ECE2;
+  --color-text: #333127;
+  --color-text-sub: #5f5f57;
+  --color-border: #ddd6c8;
+  --color-border-soft: #eae5d8;
+  --color-emphasis-bg: #e6e0d1;
+  --color-invert-bg: var(--color-navy);
+  --color-invert-text: var(--color-cream);
+  --color-placeholder-bg: #e3ded0;
+  --color-placeholder-border: #b9b2a0;
+  --color-placeholder-text: #9a917c;
+  --color-todo-bg: #fff3c4;
+  --color-todo-text: #6b5400;
+  --color-link-hover: #0d1730;
+
+  /* ---- 書体 ---- */
+  --font: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Noto Sans JP', sans-serif;
+
+  /* ---- 余白・部品の規則（design canvas B案） ---- */
+  --radius: 8px;
+  --space-section: 44px;
+  --header-h: 56px;
+  --header-h-pc: 72px;
+  --follow-h: 76px;
+  --max-width: 1080px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-cream);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--color-link-hover); }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p, dl, dd { margin: 0; }
+button { font-family: inherit; cursor: pointer; background: none; border: none; padding: 0; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 40px; }
+}
+
+/* ---- 汎用部品 ---- */
+.section-heading {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-navy);
+  margin-bottom: 28px;
+}
+
+.placeholder-box {
+  background: var(--color-placeholder-bg);
+  border: 1px dashed var(--color-placeholder-border);
+  border-radius: var(--radius);
+  color: var(--color-placeholder-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 8px;
+  width: 100%;
+}
+.ratio-16-10 { aspect-ratio: 16 / 10; }
+.ratio-4-3 { aspect-ratio: 4 / 3; }
+.ratio-1-1 { aspect-ratio: 1 / 1; border-radius: 50%; }
+
+.todo {
+  display: inline-block;
+  background: var(--color-todo-bg);
+  color: var(--color-todo-text);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  background: var(--color-navy);
+  color: var(--color-cream);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  text-align: center;
+  line-height: 1.4;
+  padding: 8px 16px;
+}
+.btn-primary:hover { color: var(--color-cream); background: var(--color-link-hover); }
+.btn-primary .btn-note { font-size: 12px; font-weight: 500; }
+
+.btn-sub-note {
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-text-sub);
+  margin-top: 10px;
+}

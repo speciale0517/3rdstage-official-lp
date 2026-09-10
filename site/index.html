@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3rd Stage｜熊本・福岡のお店の業務をアプリで作りかえます</title>
+<meta name="description" content="複写伝票やExcelの管理表、紙の台帳。面倒だと思っている仕事を、お店に合わせたアプリで作りかえます。買い切り・オフライン対応。熊本・福岡の小さなお店へ。">
+<meta property="og:title" content="3rd Stage｜熊本・福岡のお店の業務をアプリで作りかえます">
+<meta property="og:description" content="複写伝票やExcelの管理表、紙の台帳。面倒だと思っている仕事を、お店に合わせたアプリで作りかえます。買い切り・オフライン対応。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="3rd Stage">
+<meta property="og:image" content="assets/img/og-image.jpg">
+<!-- TODO:仮 og:url はドメイン確定後に設定 -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ===== 0. ヘッダー ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="assets/img/logo-icon.png" alt="3rd Stage" class="logo-icon" width="240" height="146">
+      <span class="logo-text">3rd Stage</span>
+    </a>
+    <nav class="pc-nav">
+      <ul>
+        <li><a href="#service">できること</a></li>
+        <!-- <li><a href="#works">実績</a></li> #works非表示中につき一時的に非表示。復帰時はここも戻す -->
+        <li><a href="#about">私たち</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#company">会社概要</a></li>
+      </ul>
+    </nav>
+    <a href="https://lin.ee/VlXBZzh" class="pc-cta" target="_blank" rel="noopener">LINEで相談</a>
+    <button class="menu-btn" id="menu-open" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      メニュー
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu-close" id="menu-close" aria-label="閉じる">&times;</button>
+  <nav>
+    <a href="#service">できること</a>
+    <!-- <a href="#works">実績</a> #works非表示中につき一時的に非表示。復帰時はここも戻す -->
+    <a href="#about">私たち</a>
+    <a href="#faq">よくあるご質問</a>
+    <a href="#company">会社概要</a>
+  </nav>
+  <div class="cta-wrap">
+    <a href="https://lin.ee/VlXBZzh" class="btn-primary" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===== 1. ファーストビュー ===== -->
+  <section id="fv">
+    <div class="container fv-flex">
+      <div class="fv-text">
+        <p class="fv-kicker">熊本・福岡｜お店に合わせてつくる業務アプリ</p>
+        <h1 class="fv-main">その伝票にかかる8分は、<br>お客様に請求できません。</h1>
+        <div class="fv-sub">
+          <p>積み重ねると、まとまった時間になります。</p>
+          <p>手書きの伝票も、Excelの管理表も、紙のままの台帳も。</p>
+          <p>「面倒だ」と思っている仕事を、お店に合わせて作りかえます。</p>
+        </div>
+        <a href="https://lin.ee/VlXBZzh" class="btn-primary" target="_blank" rel="noopener">LINEで相談する<br><span class="btn-note">（無料・見積もり不要）</span></a>
+        <p class="btn-sub-note">ご相談だけでも構いません。</p>
+        <div class="fv-emphasis">買い切りです。<br>月額課金はありません。</div>
+      </div>
+      <div class="fv-visual">
+        <div class="phone-frame">
+          <!-- 本来は「請求書画面 上部を切り出し＋拡大」の専用ショットに差し替え予定。
+               専用素材が撮影できるまでの間、④できることセクションと同じ実画面（app-invoice.png）を暫定流用している -->
+          <img src="assets/img/app-invoice.png" alt="請求書作成画面のスマホ表示（仮の伝票データ）" class="fv-shot" width="294" height="640" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. 信頼バー ===== -->
+  <section id="trust">
+    <div class="container">
+      <!-- 実数字が確定するまで、確定済みの2項目のみ2カラムで表示。
+           数字が用意でき次第、下記コメントの2セルを戻してtrust-grid--2をtrust-gridに戻す -->
+      <div class="trust-grid trust-grid--2">
+        <div class="trust-cell">熊本・福岡<br>対応</div>
+        <!-- <div class="trust-cell">制作アプリ<br><span class="todo">仮</span>◯本</div> -->
+        <!-- <div class="trust-cell">導入店舗<br><span class="todo">仮</span>◯店</div> --> <!-- TODO:仮 1店の場合は「導入店舗の声を掲載」に差し替え -->
+        <div class="trust-cell">自社の店舗でも<br>毎日使っています</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. お困りごと ===== -->
+  <section id="trouble">
+    <div class="container">
+      <h2 class="section-heading">こんなこと、ありませんか</h2>
+
+      <div class="trouble-group">
+        <p class="trouble-group-heading">時間が、そのまま消えています</p>
+        <div class="trouble-group-flex">
+          <div class="trouble-card">
+            <p class="trouble-card-title">書き損じるたびに、また1枚。</p>
+            <div class="trouble-card-divider"></div>
+            <p class="trouble-card-body">複写伝票は修正がききません。書き直した1枚も、また8分。積み重ねれば、それだけの時間が消えていきます。</p>
+          </div>
+          <div class="trouble-card">
+            <p class="trouble-card-title">「あの時の請求書」が、すぐに出てこない。</p>
+            <div class="trouble-card-divider"></div>
+            <p class="trouble-card-body">お客様から電話で聞かれて、ファイルを遡ってしばらく探すことに。待たせている間、他の仕事は止まっています。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="trouble-group">
+        <p class="trouble-group-heading">気づかないうちに、損をしています</p>
+        <div class="trouble-group-flex">
+          <div class="trouble-card">
+            <p class="trouble-card-title">この書き方で合っているのか、毎回自信がない。</p>
+          </div>
+          <div class="trouble-card">
+            <p class="trouble-card-title">案内の一手間が続かず、次の1台が他所に流れる。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3.5 ビフォーアフター（新規追加） ===== -->
+  <section id="before-after">
+    <div class="container">
+      <h2 class="section-heading">あなたの作業、こう変わります</h2>
+      <div class="ba-flex">
+        <p class="ba-label">これまで</p>
+        <span aria-hidden="true"></span>
+        <p class="ba-label">いまは</p>
+
+        <div class="ba-block">
+          <img class="ba-visual" src="assets/img/illust-tegaki.png" alt="複写伝票に手書きし、電卓で計算している様子" width="374" height="378" loading="lazy">
+          <p class="ba-caption">書く、計算、また書くの繰り返し</p>
+        </div>
+        <div class="ba-arrow" aria-hidden="true">→</div>
+        <div class="ba-block">
+          <img class="ba-visual" src="assets/img/illust-sumaho.png" alt="スマホで項目を選んで入力している様子" width="374" height="378" loading="lazy">
+          <p class="ba-caption">項目を選んだら、計算は自動</p>
+        </div>
+      </div>
+      <p class="ba-closing">計算も、書き直しも、もう要りません。</p>
+    </div>
+  </section>
+
+  <!-- ===== 4. 3rdStageができること ===== -->
+  <section id="service">
+    <div class="container">
+      <h2 class="section-heading">3rd Stageができること</h2>
+
+      <div class="service-grid-top">
+        <div class="service-item">
+          <p class="service-title">① 書類を、そのままの形でつくれます。</p>
+          <p class="service-body">見積書・請求書・領収書・納品書。今お使いの伝票と同じ書式で作れます。</p>
+          <div class="app-shot-stage">
+            <div class="device-frame">
+              <img src="assets/img/app-invoice.png" alt="請求書作成画面のスマホ表示（仮の伝票データ）" width="294" height="640" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="service-item">
+          <p class="service-title">② お客様と車両を、あとから探せます。<!-- TODO: 業種別LPでは「車両」→「お客様の記録」に差し替え --></p>
+          <p class="service-body">お名前でも、ナンバーでも、電話番号でも。</p>
+          <div class="app-shot-stage two-up">
+            <div class="device-frame">
+              <img src="assets/img/app-customer-search.png" alt="顧客をナンバーや名前で検索する画面（仮の顧客データ）" width="294" height="640" loading="lazy">
+            </div>
+            <div class="device-frame">
+              <img src="assets/img/app-vehicle.png" alt="車両情報を表示する画面（仮の車検証データ）" width="294" height="640" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-item emphasis">
+        <p class="service-title">③ 伝票に限りません。お店の「面倒」に合わせて作ります。</p>
+        <p class="service-body">予約の受付表、作業の記録、お店のホームページ。「これも何とかならないか」と思っていることがあれば、まずお聞かせください。</p>
+        <!-- 実画面スクリーンショットが撮影できるまで非表示。撮影後は以下を戻す
+        <div class="placeholder-box ratio-16-10">[ミエルカ 統計画面]</div> TODO:仮 仮データ_サンプル.jsonで撮影して差し替え -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. 導入事例（店名・実物写真・お客様の声が掲載許諾/素材待ちのため非表示中） ===== -->
+  <!-- <template>は中身がブラウザに描画されないタグ。素材と許諾が揃ったら
+       この<template>タグと閉じタグだけを削除すれば元のまま復帰する -->
+  <template data-hidden-section="case">
+  <section id="case">
+    <div class="container">
+      <h2 class="section-heading">導入していただいています</h2>
+      <p class="case-store">熊本県内・整備工場A様<!-- TODO:仮 実名は掲載許諾待ち --></p>
+
+      <div class="case-flex">
+        <div class="case-block">
+          <p class="case-label">これまで</p>
+          <div class="placeholder-box ratio-4-3">[手書き複写伝票の実物写真]<!-- TODO:仮 自然光・無地背景・水平で撮影して差し替え --></div>
+          <p class="case-text">複写伝票に手書き。控えはファイルに綴じて保管。</p>
+        </div>
+        <div class="case-arrow" aria-hidden="true">→</div>
+        <div class="case-block">
+          <p class="case-label">いまは</p>
+          <div class="placeholder-box ratio-4-3">[アプリの請求書画面]<!-- TODO:仮 ダミーデータで撮影して差し替え --></div>
+          <p class="case-text">選ぶだけで1枚できあがり。過去の分もお名前で探せます。</p>
+        </div>
+      </div>
+
+      <div class="case-voice">
+        「<span class="todo">仮</span>お客様の声」<!-- TODO:仮 掲載許諾が下りなければこのブロックごと非表示（構造は崩れない） -->
+        <span class="who">— A様</span>
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <!-- ===== 6. 中間CTA ===== -->
+  <section id="mid-cta">
+    <div class="container mid-cta-container">
+      <a href="https://lin.ee/VlXBZzh" class="btn-primary" target="_blank" rel="noopener">このアプリについて聞いてみる</a>
+      <p class="btn-sub-note">LINEが開きます。</p>
+    </div>
+  </section>
+
+  <!-- ===== 7. 制作実績（サムネイル4点が未撮影のため非表示中） ===== -->
+  <!-- サムネイル画像が揃ったら<template>タグと閉じタグだけ削除すれば復帰する。
+       復帰時はヘッダーPCナビ・モバイルメニュー・フッターナビの「実績」リンク（#works）も合わせて戻すこと -->
+  <template data-hidden-section="works">
+  <section id="works">
+    <div class="container">
+      <h2 class="section-heading">つくったもの</h2>
+      <div class="works-grid">
+        <div class="works-item">
+          <div class="placeholder-box ratio-4-3">[サムネイル]</div>
+          <div class="works-body">
+            <p class="works-name">ケンズ請求書アプリ</p>
+            <p class="works-desc">整備工場向け 見積・請求</p>
+            <span class="works-tag">業務アプリ</span>
+          </div>
+        </div>
+        <div class="works-item">
+          <div class="placeholder-box ratio-4-3">[サムネイル]</div>
+          <div class="works-body">
+            <p class="works-name">ミエルカ</p>
+            <p class="works-desc">売上管理・分析</p>
+            <span class="works-tag">業務アプリ</span>
+          </div>
+        </div>
+        <div class="works-item">
+          <div class="placeholder-box ratio-4-3">[サムネイル]</div>
+          <div class="works-body">
+            <p class="works-name">SKZK診断</p>
+            <p class="works-desc">診断コンテンツサイト</p>
+            <span class="works-tag">サイト制作</span>
+          </div>
+        </div>
+        <div class="works-item">
+          <div class="placeholder-box ratio-4-3">[サムネイル]</div>
+          <div class="works-body">
+            <p class="works-name">ガチャグイッ!!</p>
+            <p class="works-desc">飲みげーアプリ</p>
+            <span class="works-tag">アプリ（iOS）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <!-- ===== 8. 選ばれる理由 ===== -->
+  <section id="reasons">
+    <div class="container">
+      <h2 class="section-heading">選ばれている理由</h2>
+      <div class="reasons-grid">
+        <div class="reason-item">
+          <p class="reason-title">① 買い切りです。月額課金はありません。</p>
+          <p class="reason-body">一度お作りしたものは、そのままお使いいただけます。</p>
+        </div>
+        <div class="reason-item">
+          <p class="reason-title">② ネットがつながらなくても動きます。</p>
+          <p class="reason-body">工場の奥でも、いつもどおり使えます。</p>
+        </div>
+        <div class="reason-item">
+          <p class="reason-title">③ 買う前に、実物を触っていただけます。</p>
+          <p class="reason-body">ご説明に伺うとき、実際に動くものをお持ちします。</p>
+        </div>
+        <div class="reason-item">
+          <p class="reason-title">④ 熊本・福岡へ、顔を出して伺います。</p>
+          <p class="reason-body">電話の向こうの窓口ではなく、担当が直接。</p>
+        </div>
+        <div class="reason-item full">
+          <p class="reason-title">⑤ このサイトも、自社で作りました。</p>
+          <p class="reason-body">いまご覧のこのページも、私たちが作っています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. 流れ + 料金 ===== -->
+  <section id="flow">
+    <div class="container">
+      <h2 class="section-heading">ご相談から、お届けまで</h2>
+
+      <div class="flow-flex">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div>
+            <p class="flow-title">LINEでご相談</p>
+            <p class="flow-body">「今こんな風にやっている」を教えてください。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div>
+            <p class="flow-title">お店に伺います</p>
+            <p class="flow-body">今お使いの伝票を見せてください。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div>
+            <p class="flow-title">お見積り</p>
+            <p class="flow-body">何をどこまで作るか、金額と一緒にお出しします。</p>
+            <div class="flow-emphasis">ここで断っていただいて構いません。</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div>
+            <p class="flow-title">お作りして、お届け</p>
+            <p class="flow-body">その場で一緒に触ってみます。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div>
+            <p class="flow-title">使い始めてから</p>
+            <p class="flow-body">「ここを変えたい」もご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-box">
+        <p class="price-heading">料金について</p>
+        <p class="price-body">
+          お店によって、必要なものが違います。そのため、決まった価格表はご用意していません。お話を伺ってから、金額をお出しします。
+          <span class="strong-line">ひとつだけ決まっているのは、買い切りだということです。毎月のお支払いは、ありません。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. よくあるご質問 ===== -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-heading">よくあるご質問</h2>
+
+      <div class="faq-item">
+        <p class="faq-q"><span class="badge">Q</span>パソコンが苦手でも使えますか。</p>
+        <p class="faq-a">スマホで写真を撮ったり、LINEを送ったりできれば大丈夫です。文字を打つ場面はできるだけ少なくして、選ぶだけで済むように作ります。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q"><span class="badge">Q</span>インターネットがない工場でも動きますか。</p>
+        <p class="faq-a">動きます。通信を使わずに、端末の中だけで動くように作っています。電波が入らない場所でも、いつもどおりお使いいただけます。</p>
+      </div>
+
+      <div class="faq-item emphasis">
+        <p class="faq-q"><span class="badge">Q</span>データが消えたりしませんか。</p>
+        <p class="faq-a">端末の中に保存する仕組みのため、端末を初期化したり、ブラウザのデータを消してしまうと、記録も一緒に消えます。そのため、<strong>データを書き出して保存しておく機能</strong>を必ずお付けしています。定期的な書き出しのやり方も、納品時にご説明します。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q"><span class="badge">Q</span>月額はかかりますか。</p>
+        <p class="faq-a">かかりません。買い切りです。一度お作りしたものは、その後お支払いなしでお使いいただけます。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q"><span class="badge">Q</span>今使っている伝票と同じ書式にできますか。</p>
+        <p class="faq-a">できます。今お使いの伝票を見せていただいて、同じ見た目になるようにお作りします。お客様に渡す書類の見た目が変わらないので、お客様が戸惑うこともありません。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q"><span class="badge">Q</span>まず話を聞くだけでもいいですか。</p>
+        <p class="faq-a">もちろんです。お見積りをお出しした段階でお断りいただいても構いません。その後にこちらからしつこくご連絡することはありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11. 私たちについて ===== -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-heading">つくっているのは、この人たち</h2>
+
+      <!-- メンバー写真2名分は撮影・掲載可否確認待ちのため非表示。
+           用意でき次第、各member-itemの直後に
+           <div class="member-photo"><img src="assets/img/member-xxx.jpg" alt="..." width="80" height="80"></div>
+           をmember-bodyの前に戻す（member-photoのCSSは維持済み） -->
+      <div class="member-item">
+        <div class="member-body">
+          <p class="member-role">社長 兼 開発担当</p>
+          <p class="member-name">西村憧平<span class="member-kana">（にしむら　しょうへい）</span></p>
+          <p class="member-quote">「使う人が説明書を読まなくていいものを作ります。分からないところは、作り直します。」</p>
+        </div>
+      </div>
+
+      <div class="member-item">
+        <div class="member-body">
+          <p class="member-role">福岡エリア担当<!-- TODO:仮 掲載可否 確認待ち --></p>
+          <p class="member-name">福田雄翔<span class="member-kana">（ふくだ　ゆうと）</span></p>
+          <p class="member-quote">「福岡でお困りのお店に、直接お伺いします。」</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 12. 最終CTA ===== -->
+  <section id="final-cta">
+    <div class="container final-flex">
+      <div class="final-text">
+        <h2 class="final-heading">まずは、今のやり方を教えてください。</h2>
+        <p class="final-body">何を作るか決まっていなくても構いません。「手書きでやっている」「Excelで作っている」。その一言からで大丈夫です。</p>
+        <a href="https://lin.ee/VlXBZzh" class="btn-primary final-cta-btn" target="_blank" rel="noopener">LINEで相談する</a>
+        <p class="btn-sub-note">「今こんな風にやっています」の一言からで大丈夫です。</p>
+      </div>
+      <div class="final-qr">
+        <img src="assets/img/qr-line.png" alt="3rd Stage公式LINEアカウント 友だち追加QRコード" class="qr-img" width="540" height="540" loading="lazy">
+        <p>スマホで読み取ってご相談ください。<br>LINEの友だち追加画面が開きます。</p>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<!-- ===== 13. フッター ===== -->
+<footer id="company">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="assets/img/logo-icon.png" alt="" width="240" height="146">
+      <span>3rd Stage</span>
+    </div>
+    <dl class="footer-company">
+      <dt>法人名</dt><dd>3rd Stage合同会社</dd>
+      <dt>連絡先</dt><dd>公式LINE @289wzocw</dd>
+    </dl>
+    <nav class="footer-nav">
+      <a href="#service">できること</a>
+      <!-- <a href="#works">実績</a> #works非表示中につき一時的に非表示。復帰時はここも戻す -->
+      <a href="#about">私たち</a>
+      <a href="#faq">よくあるご質問</a>
+      <a href="#company">会社概要</a>
+    </nav>
+    <div class="footer-legal">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    </div>
+    <div class="footer-sns">
+      <a href="https://x.com/3rdstagepr" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.5 22H1.4l8.1-9.3L1 2h7.2l5 6.6L18.9 2Zm-1.2 18h1.7L7.4 4H5.6l12.1 16Z"/></svg>
+        <span class="sns-label">X（旧Twitter）</span>
+      </a>
+      <a href="https://www.instagram.com/3rdstage.pr/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        <span class="sns-label">Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/@3rdStagepr" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C17.9 4.6 12 4.6 12 4.6s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2C2 8.6 2 12 2 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5Z" stroke="currentColor" stroke-width="0" fill-opacity="0"/><path d="M22 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C17.9 4.6 12 4.6 12 4.6s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2C2 8.6 2 12 2 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.6 15 12l-5 2.4Z" fill="currentColor"/></svg>
+        <span class="sns-label">YouTube</span>
+      </a>
+      <a href="https://www.tiktok.com/@3rd.stageai" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.2v13.6a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1v-3.3a6.2 6.2 0 1 0 5.3 6.1V8.2a7.6 7.6 0 0 0 4.3 1.3V6.3a4.3 4.3 0 0 1-4.4-4.3Z"/></svg>
+        <span class="sns-label">TikTok</span>
+      </a>
+    </div>
+    <p>&copy; 2026 3rd Stage</p>
+  </div>
+</footer>
+
+<!-- ===== 14. 追従CTAバー（SPのみ・FV通過後に表示） ===== -->
+<div id="follow-bar">
+  <a href="https://lin.ee/VlXBZzh" class="btn-primary" target="_blank" rel="noopener">LINEで相談する<br><span class="btn-note">（無料・見積もり不要）</span></a>
+</div>
+
+<script src="assets/js/main.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "パソコンが苦手でも使えますか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "スマホで写真を撮ったり、LINEを送ったりできれば大丈夫です。文字を打つ場面はできるだけ少なくして、選ぶだけで済むように作ります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "インターネットがない工場でも動きますか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "動きます。通信を使わずに、端末の中だけで動くように作っています。電波が入らない場所でも、いつもどおりお使いいただけます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "データが消えたりしませんか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "端末の中に保存する仕組みのため、端末を初期化したり、ブラウザのデータを消してしまうと、記録も一緒に消えます。そのため、データを書き出して保存しておく機能を必ずお付けしています。定期的な書き出しのやり方も、納品時にご説明します。" }
+    },
+    {
+      "@type": "Question",
+      "name": "月額はかかりますか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "かかりません。買い切りです。一度お作りしたものは、その後お支払いなしでお使いいただけます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "今使っている伝票と同じ書式にできますか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "できます。今お使いの伝票を見せていただいて、同じ見た目になるようにお作りします。お客様に渡す書類の見た目が変わらないので、お客様が戸惑うこともありません。" }
+    },
+    {
+      "@type": "Question",
+      "name": "まず話を聞くだけでもいいですか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "もちろんです。お見積りをお出しした段階でお断りいただいても構いません。その後にこちらからしつこくご連絡することはありません。" }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
