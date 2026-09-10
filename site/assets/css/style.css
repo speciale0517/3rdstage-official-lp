@@ -127,18 +127,14 @@ body.menu-open-lock { overflow: hidden; overscroll-behavior: none; }
   color: var(--color-navy);
   line-height: 1.5;
 }
-.fv-visual { margin-top: 32px; }
-.phone-frame {
-  max-width: 260px;
-  margin: 0 auto;
-  border: 3px solid var(--color-navy);
-  border-radius: 22px;
-  padding: 10px;
-  height: 300px;
-  overflow: hidden;
-  position: relative;
+.fv-visual { margin-top: 32px; display: flex; justify-content: center; }
+/* .device-frameの定義（できることセクションと共通）は下記4章参照。
+   複合セレクタにして、後方で定義される.device-frameの高さより詳細度を上げて確実に上書きする */
+.device-frame.fv-device { height: 320px; }
+
+@media (min-width: 768px) {
+  .device-frame.fv-device { height: 380px; }
 }
-.phone-frame .placeholder-box { height: 380px; } /* 下端で切れて見えるよう枠より大きくする */
 
 /* ===== 2. 信頼バー ===== */
 #trust {
@@ -213,7 +209,9 @@ body.menu-open-lock { overflow: hidden; overscroll-behavior: none; }
 .ba-flex { display: grid; grid-template-columns: auto auto auto; justify-content: center; align-items: center; gap: 8px 10px; }
 .ba-block { text-align: center; }
 .ba-arrow { text-align: center; font-size: 20px; color: var(--color-navy); }
-.ba-visual { max-width: 130px; margin: 0 auto 8px; border-radius: var(--radius); }
+/* height:autoが無いとwidth/height属性（374x378）由来の高さがそのまま残り、
+   max-widthで幅だけ縮んで縦長に潰れて見えるバグがあったため明示する */
+.ba-visual { max-width: 130px; height: auto; margin: 0 auto 8px; border-radius: var(--radius); }
 .ba-label { font-size: 15px; font-weight: 700; color: var(--color-navy); text-align: center; }
 .ba-caption { font-size: 15px; color: var(--color-text); line-height: 1.5; }
 .ba-closing { text-align: center; font-weight: 700; color: var(--color-navy); margin-top: 28px; font-size: 32px; line-height: 1.4; }
@@ -515,7 +513,9 @@ footer { padding: 40px 0 calc(40px + var(--safe-bottom) + var(--follow-h)); bord
   .final-flex { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
   .final-flex .final-text { flex: 1; }
   .final-qr { display: flex; flex: none; flex-direction: column; align-items: center; gap: 10px; width: 180px; }
-  .final-qr .qr-img { width: 100%; aspect-ratio: 1/1; border-radius: var(--radius); background: #fff; }
+  /* height:autoが無いとwidth/height属性（540x540）由来の高さがそのまま残り、
+     aspect-ratioが効かずQRコードが縦長に潰れて見えるバグがあったため明示する */
+  .final-qr .qr-img { width: 100%; height: auto; aspect-ratio: 1/1; border-radius: var(--radius); background: #fff; }
   .final-qr p { font-size: 12px; text-align: center; color: rgba(240,236,226,0.75); }
   #final-cta .btn-primary { max-width: 320px; }
 
@@ -540,6 +540,16 @@ footer { padding: 40px 0 calc(40px + var(--safe-bottom) + var(--follow-h)); bord
 .legal-back { display: inline-block; margin-top: 32px; font-size: 15px; font-weight: 700; color: var(--color-navy); text-decoration: underline; }
 
 @media (min-width: 768px) {
+  /* ラベル(dt)と内容(dd)を同じグリッド行に並べる。
+     dtのpadding-topがddと揃っていない・align-items:centerで内容が複数行の行だけ
+     ラベルが下に沈んで見える、という2つの原因でラベルと内容の1行目がずれて見えていたため、
+     paddingを揃えて上揃え（flex-start）に統一する */
   .legal-table { display: grid; grid-template-columns: 220px 1fr; column-gap: 24px; }
-  .legal-table dt { border-bottom: 1px solid var(--color-border); display: flex; align-items: center; }
+  .legal-table dt {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: flex-start;
+  }
+  .legal-table dd { padding-top: 16px; }
 }
