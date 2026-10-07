@@ -164,6 +164,20 @@ body.menu-open-lock { overflow: hidden; overscroll-behavior: none; }
 /* 実数字（制作アプリ数・導入店舗数）が未確定の間、確定済み2項目のみを中央寄せ2カラムで表示。
    デスクトップの4カラム上書き（本ファイル後方のメディアクエリ）より優先させるため複合セレクタで詳細度を上げる */
 .trust-grid.trust-grid--2 { grid-template-columns: repeat(2, 1fr); max-width: 480px; margin: 0 auto; }
+/* 3項目版。375px幅でも3列を保つため文字と余白を詰める */
+.trust-grid.trust-grid--3 { grid-template-columns: repeat(3, 1fr); max-width: 720px; margin: 0 auto; }
+.trust-grid--3 .trust-cell { font-size: 13px; padding: 14px 6px; }
+
+/* ===== 2.5 私たち（縮小版） ===== */
+#about-mini { padding: 32px 0; background: var(--color-emphasis-bg); }
+#about-mini .section-heading { margin-bottom: 12px; }
+.nowrap { white-space: nowrap; }
+.about-mini-lead { font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+.about-mini-members { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.about-mini-member { background: var(--color-cream); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 14px 12px; }
+.about-mini-member .member-name { margin-bottom: 0; }
+.about-mini-link { margin-top: 12px; text-align: right; font-size: 15px; }
+.about-mini-link a { display: inline-block; padding: 12px 0; color: var(--color-navy); font-weight: 700; text-decoration: underline; }
 
 /* ===== 3. お困りごと ===== */
 
@@ -449,6 +463,8 @@ footer { padding: 40px 0 calc(40px + var(--safe-bottom) + var(--follow-h)); bord
   white-space: nowrap;
 }
 
+.reason-note { display: block; margin-top: 6px; font-size: 14px; color: var(--color-text-sub); }
+
 /* ===== 14. 追従CTAバー（モバイルのみ） ===== */
 #follow-bar {
   position: fixed;
@@ -457,9 +473,10 @@ footer { padding: 40px 0 calc(40px + var(--safe-bottom) + var(--follow-h)); bord
   background: var(--color-navy);
   padding: 10px 16px calc(10px + var(--safe-bottom));
   transform: translateY(100%);
-  transition: transform 0.25s ease;
+  visibility: hidden; /* 画面外にいる間はTabキーでフォーカスが当たらないようにする */
+  transition: transform 0.25s ease, visibility 0s linear 0.25s;
 }
-#follow-bar.show { transform: translateY(0); }
+#follow-bar.show { transform: translateY(0); visibility: visible; transition: transform 0.25s ease, visibility 0s; }
 #follow-bar .btn-primary { height: 56px; background: var(--color-cream); color: var(--color-navy); }
 
 /* ============================================================

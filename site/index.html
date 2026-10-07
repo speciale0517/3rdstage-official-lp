@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>3rd Stage｜熊本・福岡のお店の業務をアプリで作りかえます</title>
-<meta name="description" content="複写伝票やExcelの管理表、紙の台帳。面倒だと思っている仕事を、お店に合わせたアプリで作りかえます。買い切り・オフライン対応。熊本・福岡の小さなお店へ。">
+<meta name="description" content="複写伝票やExcelの管理表、紙の台帳。面倒だと思っている仕事を、お店に合わせたアプリで作りかえます。買い切りで、月額はありません。熊本・福岡の小さなお店へ。">
 <meta property="og:title" content="3rd Stage｜熊本・福岡のお店の業務をアプリで作りかえます">
-<meta property="og:description" content="複写伝票やExcelの管理表、紙の台帳。面倒だと思っている仕事を、お店に合わせたアプリで作りかえます。買い切り・オフライン対応。">
+<meta property="og:description" content="複写伝票やExcelの管理表、紙の台帳。面倒だと思っている仕事を、お店に合わせたアプリで作りかえます。買い切りで、月額はありません。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="3rd Stage">
-<meta property="og:image" content="assets/img/og-image.jpg">
-<!-- TODO:仮 og:url はドメイン確定後に設定 -->
+<meta property="og:image" content="https://3rdstage-official-lp.netlify.app/assets/img/og-image.jpg">
+<meta property="og:url" content="https://3rdstage-official-lp.netlify.app/"> <!-- 独自ドメインにしたらog:image/og:urlとも書き換える -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://3rdstage-official-lp.netlify.app/assets/img/og-image.jpg">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +27,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="#" class="logo">
-      <img src="assets/img/logo-icon.png" alt="3rd Stage" class="logo-icon" width="240" height="146">
+      <img src="assets/img/logo-icon.png" alt="" class="logo-icon" width="240" height="146">
       <span class="logo-text">3rd Stage</span>
     </a>
     <nav class="pc-nav">
@@ -82,7 +83,7 @@
              専用素材が撮影できるまでの間、④できることセクションと同じ実画面（app-invoice.png）を
              同じdevice-frame（iPhone実機風・Dynamic Island風の切り欠き）で暫定流用している -->
         <div class="device-frame fv-device">
-          <img src="assets/img/app-invoice.png" alt="請求書作成画面のスマホ表示（仮の伝票データ）" width="294" height="640" loading="lazy">
+          <img src="assets/img/app-invoice.png" alt="請求書作成画面のスマホ表示（仮の伝票データ）" width="294" height="640">
         </div>
       </div>
     </div>
@@ -91,14 +92,34 @@
   <!-- ===== 2. 信頼バー ===== -->
   <section id="trust">
     <div class="container">
-      <!-- 実数字が確定するまで、確定済みの2項目のみ2カラムで表示。
-           数字が用意でき次第、下記コメントの2セルを戻してtrust-grid--2をtrust-gridに戻す -->
-      <div class="trust-grid trust-grid--2">
-        <div class="trust-cell">熊本・福岡<br>対応</div>
-        <!-- <div class="trust-cell">制作アプリ<br><span class="todo">仮</span>◯本</div> -->
-        <!-- <div class="trust-cell">導入店舗<br><span class="todo">仮</span>◯店</div> --> <!-- TODO:仮 1店の場合は「導入店舗の声を掲載」に差し替え -->
-        <div class="trust-cell">自社の店舗でも<br>毎日使っています</div>
+      <!-- 2026-10-08 直輝の指摘（会社の情報を先に載せる）に対応し、確定済みの3項目に作り替え。
+           実数字（制作アプリ数・導入店舗数）が用意できたら、下記コメントのセルを足してtrust-grid--3を戻す -->
+      <!-- <div class="trust-cell">制作アプリ<br><span class="todo">仮</span>◯本</div> -->
+      <!-- <div class="trust-cell">導入店舗<br><span class="todo">仮</span>◯店</div> --> <!-- TODO:仮 1店の場合は「導入店舗の声を掲載」に差し替え -->
+      <div class="trust-grid trust-grid--3">
+        <div class="trust-cell">熊本・福岡の<br>小さな会社です</div>
+        <div class="trust-cell">自社のお店でも<br>毎日使用中</div>
+        <div class="trust-cell">買い切り<br>月額なし</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== 2.5 私たち（縮小版）。詳細は下の #about に残してある ===== -->
+  <section id="about-mini">
+    <div class="container">
+      <h2 class="section-heading">お伺いするのは、この人たちです</h2>
+      <p class="about-mini-lead">熊本・福岡の少人数の会社です。アプリは<span class="nowrap">社長が自分で作り</span>、<span class="nowrap">お伺いするのも</span>私たち自身です。</p>
+      <div class="about-mini-members">
+        <div class="about-mini-member">
+          <p class="member-role">社長 兼 開発担当</p>
+          <p class="member-name">西村憧平</p>
+        </div>
+        <div class="about-mini-member">
+          <p class="member-role">福岡エリア担当</p>
+          <p class="member-name">福田雄翔</p>
+        </div>
+      </div>
+      <p class="about-mini-link"><a href="#about">ひとことも読む</a></p>
     </div>
   </section>
 
@@ -285,15 +306,15 @@
   <!-- ===== 8. 選ばれる理由 ===== -->
   <section id="reasons">
     <div class="container">
-      <h2 class="section-heading">選ばれている理由</h2>
+      <h2 class="section-heading">3rd Stageの特徴</h2>
       <div class="reasons-grid">
         <div class="reason-item">
           <p class="reason-title">① 買い切りです。月額課金はありません。</p>
           <p class="reason-body">一度お作りしたものは、そのままお使いいただけます。</p>
         </div>
         <div class="reason-item">
-          <p class="reason-title">② ネットがつながらなくても動きます。</p>
-          <p class="reason-body">工場の奥でも、いつもどおり使えます。</p>
+          <p class="reason-title">② 一部のアプリは、ネットがつながらない場所でも使えます。</p>
+          <p class="reason-body">電波の届かない工場の奥でも、入力・保存・印刷がそのまま。お客様の情報は端末の中に保存し、外部のサーバーへ送りません。<span class="reason-note">（※初回起動時のみインターネット環境が必要です。対応できるかはアプリの内容によります。）</span></p>
         </div>
         <div class="reason-item">
           <p class="reason-title">③ 買う前に、実物を触っていただけます。</p>
@@ -376,8 +397,8 @@
       </div>
 
       <div class="faq-item">
-        <p class="faq-q"><span class="badge">Q</span>インターネットがない工場でも動きますか。</p>
-        <p class="faq-a">動きます。通信を使わずに、端末の中だけで動くように作っています。電波が入らない場所でも、いつもどおりお使いいただけます。</p>
+        <p class="faq-q"><span class="badge">Q</span>インターネットがない工場でも使えますか。</p>
+        <p class="faq-a">一部のアプリは、ネットがつながらない場所でも使えます。ただし、初回起動時のみインターネット環境が必要です。一度開いたあとは、電波の届かない場所でも入力・保存・印刷ができ、データは端末の中に保存して外部へ送ることはありません。（作った書類をそのまま送る機能だけは、通信が必要です。）対応できるかはアプリの内容によりますので、ご相談ください。</p>
       </div>
 
       <div class="faq-item emphasis">
@@ -421,7 +442,7 @@
 
       <div class="member-item">
         <div class="member-body">
-          <p class="member-role">福岡エリア担当<!-- TODO:仮 掲載可否 確認待ち --></p>
+          <p class="member-role">福岡エリア担当</p>
           <p class="member-name">福田雄翔<span class="member-kana">（ふくだ　ゆうと）</span></p>
           <p class="member-quote">「福岡でお困りのお店に、直接お伺いします。」</p>
         </div>
@@ -488,7 +509,7 @@
         <span class="sns-label">TikTok</span>
       </a>
     </div>
-    <p>&copy; 2026 3rd Stage</p>
+    <p>&copy; 2026 3rd Stage合同会社</p>
   </div>
 </footer>
 
@@ -511,8 +532,8 @@
     },
     {
       "@type": "Question",
-      "name": "インターネットがない工場でも動きますか。",
-      "acceptedAnswer": { "@type": "Answer", "text": "動きます。通信を使わずに、端末の中だけで動くように作っています。電波が入らない場所でも、いつもどおりお使いいただけます。" }
+      "name": "インターネットがない工場でも使えますか。",
+      "acceptedAnswer": { "@type": "Answer", "text": "一部のアプリは、ネットがつながらない場所でも使えます。ただし、初回起動時のみインターネット環境が必要です。一度開いたあとは、電波の届かない場所でも入力・保存・印刷ができ、データは端末の中に保存して外部へ送ることはありません。（作った書類をそのまま送る機能だけは、通信が必要です。）対応できるかはアプリの内容によりますので、ご相談ください。" }
     },
     {
       "@type": "Question",

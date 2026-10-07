@@ -4,3 +4,6 @@ wireframe.html
 design-directions/
 
 .DS_Store
+
+# site/から退避した未使用画像（公開しない）
+assets-unused/
