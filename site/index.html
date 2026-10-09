@@ -33,6 +33,7 @@
     <nav class="pc-nav">
       <ul>
         <li><a href="#service">できること</a></li>
+        <li><a href="#products">自社製品</a></li>
         <!-- <li><a href="#works">実績</a></li> #works非表示中につき一時的に非表示。復帰時はここも戻す -->
         <li><a href="#about">私たち</a></li>
         <li><a href="#faq">よくあるご質問</a></li>
@@ -51,6 +52,7 @@
   <button class="mobile-menu-close" id="menu-close" aria-label="閉じる">&times;</button>
   <nav>
     <a href="#service">できること</a>
+    <a href="#products">自社製品</a>
     <!-- <a href="#works">実績</a> #works非表示中につき一時的に非表示。復帰時はここも戻す -->
     <a href="#about">私たち</a>
     <a href="#faq">よくあるご質問</a>
@@ -62,6 +64,41 @@
 </div>
 
 <main>
+
+  <!-- ===== 0.5 信頼バー ===== -->
+  <!-- 2026-10-09 直輝の指摘（会社の概要＝少人数でやっていることを最上位に）により、信頼バーと縮小版「私たち」をFVより上へ移動 -->
+  <section id="trust">
+    <div class="container">
+      <!-- 2026-10-08 直輝の指摘（会社の情報を先に載せる）に対応し、確定済みの3項目に作り替え。
+           実数字（制作アプリ数・導入店舗数）が用意できたら、下記コメントのセルを足してtrust-grid--3を戻す -->
+      <!-- <div class="trust-cell">制作アプリ<br><span class="todo">仮</span>◯本</div> -->
+      <!-- <div class="trust-cell">導入店舗<br><span class="todo">仮</span>◯店</div> --> <!-- TODO:仮 1店の場合は「導入店舗の声を掲載」に差し替え -->
+      <div class="trust-grid trust-grid--3">
+        <div class="trust-cell">熊本・福岡の<br>小さな会社です</div>
+        <div class="trust-cell">自社のお店でも<br>毎日使用中</div>
+        <div class="trust-cell">買い切り<br>月額なし</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 0.6 私たち（縮小版）。詳細は下の #about に残してある ===== -->
+  <section id="about-mini">
+    <div class="container">
+      <h2 class="section-heading">お伺いするのは、この人たちです</h2>
+      <p class="about-mini-lead">熊本・福岡の少人数の会社です。アプリは<span class="nowrap">社長が自分で作り</span>、<span class="nowrap">お伺いするのも</span><span class="nowrap">私たち自身です。</span></p>
+      <div class="about-mini-members">
+        <div class="about-mini-member">
+          <p class="member-role">社長 兼 開発担当</p>
+          <p class="member-name">西村憧平</p>
+        </div>
+        <div class="about-mini-member">
+          <p class="member-role">福岡エリア担当</p>
+          <p class="member-name">福田雄翔</p>
+        </div>
+      </div>
+      <p class="about-mini-link"><a href="#about">ひとことも読む</a></p>
+    </div>
+  </section>
 
   <!-- ===== 1. ファーストビュー ===== -->
   <section id="fv">
@@ -86,40 +123,6 @@
           <img src="assets/img/app-invoice.png" alt="請求書作成画面のスマホ表示（仮の伝票データ）" width="294" height="640">
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== 2. 信頼バー ===== -->
-  <section id="trust">
-    <div class="container">
-      <!-- 2026-10-08 直輝の指摘（会社の情報を先に載せる）に対応し、確定済みの3項目に作り替え。
-           実数字（制作アプリ数・導入店舗数）が用意できたら、下記コメントのセルを足してtrust-grid--3を戻す -->
-      <!-- <div class="trust-cell">制作アプリ<br><span class="todo">仮</span>◯本</div> -->
-      <!-- <div class="trust-cell">導入店舗<br><span class="todo">仮</span>◯店</div> --> <!-- TODO:仮 1店の場合は「導入店舗の声を掲載」に差し替え -->
-      <div class="trust-grid trust-grid--3">
-        <div class="trust-cell">熊本・福岡の<br>小さな会社です</div>
-        <div class="trust-cell">自社のお店でも<br>毎日使用中</div>
-        <div class="trust-cell">買い切り<br>月額なし</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 2.5 私たち（縮小版）。詳細は下の #about に残してある ===== -->
-  <section id="about-mini">
-    <div class="container">
-      <h2 class="section-heading">お伺いするのは、この人たちです</h2>
-      <p class="about-mini-lead">熊本・福岡の少人数の会社です。アプリは<span class="nowrap">社長が自分で作り</span>、<span class="nowrap">お伺いするのも</span>私たち自身です。</p>
-      <div class="about-mini-members">
-        <div class="about-mini-member">
-          <p class="member-role">社長 兼 開発担当</p>
-          <p class="member-name">西村憧平</p>
-        </div>
-        <div class="about-mini-member">
-          <p class="member-role">福岡エリア担当</p>
-          <p class="member-name">福田雄翔</p>
-        </div>
-      </div>
-      <p class="about-mini-link"><a href="#about">ひとことも読む</a></p>
     </div>
   </section>
 
@@ -215,6 +218,35 @@
         <p class="service-body">予約の受付表、作業の記録、お店のホームページ。「これも何とかならないか」と思っていることがあれば、まずお聞かせください。</p>
         <!-- 実画面スクリーンショットが撮影できるまで非表示。撮影後は以下を戻す
         <div class="placeholder-box ratio-16-10">[ミエルカ 統計画面]</div> TODO:仮 仮データ_サンプル.jsonで撮影して差し替え -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4.5 自社製品（各製品LPへのリンク。製品LPは別サイトとして併存） ===== -->
+  <!-- クルミのLPができたら、products-gridにカードを1枚足す（サムネはLPのOGP画像を流用） -->
+  <section id="products">
+    <div class="container">
+      <h2 class="section-heading">すぐに使えるアプリもあります</h2>
+      <p class="products-lead">お店に合わせてお作りするほかに、3rd Stageが自社で作ったアプリもご用意しています。</p>
+      <div class="products-grid">
+        <a class="product-card" href="https://kurute-officiallp.netlify.app/" target="_blank" rel="noopener">
+          <img class="product-thumb" src="assets/img/product-kurute.jpg" alt="" width="1200" height="630" loading="lazy">
+          <div class="product-body">
+            <p class="product-name">クルテ</p>
+            <p class="product-tag">整備工場向け 見積書・請求書</p>
+            <p class="product-desc">車検の諸費用が最初から入った見積書・請求書アプリ。見積書から請求書へ、ボタン一つで切り替えられます。</p>
+            <span class="product-more">詳しく見る<span class="sr-only">（クルテのページが新しいタブで開きます）</span> →</span>
+          </div>
+        </a>
+        <a class="product-card" href="https://mieruka-officiallp.netlify.app/" target="_blank" rel="noopener">
+          <img class="product-thumb" src="assets/img/product-mieruka.png" alt="" width="1200" height="630" loading="lazy">
+          <div class="product-body">
+            <p class="product-name">ミエルカ</p>
+            <p class="product-tag">自動車リペア・出張施工向け 売上管理</p>
+            <p class="product-desc">売上を入力するだけで、粗利・未回収・お客様ごとの成績が見えます。スマホ1台で使えます。</p>
+            <span class="product-more">詳しく見る<span class="sr-only">（ミエルカのページが新しいタブで開きます）</span> →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -482,6 +514,7 @@
     </dl>
     <nav class="footer-nav">
       <a href="#service">できること</a>
+      <a href="#products">自社製品</a>
       <!-- <a href="#works">実績</a> #works非表示中につき一時的に非表示。復帰時はここも戻す -->
       <a href="#about">私たち</a>
       <a href="#faq">よくあるご質問</a>

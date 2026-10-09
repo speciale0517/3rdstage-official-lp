@@ -292,6 +292,30 @@ body.menu-open-lock { overflow: hidden; overscroll-behavior: none; }
   .app-shot-stage.two-up .device-frame { height: 340px; }
 }
 
+/* ===== 4.5 自社製品 ===== */
+#products { padding: var(--space-section) 0; background: var(--color-cream); }
+.products-lead { font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
+.products-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.product-card {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.product-card:hover { border-color: var(--color-navy); }
+.product-card:focus-visible { outline: 3px solid var(--color-navy); outline-offset: 2px; }
+/* height:autoが無いとwidth/height属性由来の高さが残り縦に伸びるため明示（ba-visual・qr-imgと同じ対策） */
+.product-thumb { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-bottom: 1px solid var(--color-border); }
+.product-body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+.product-name { font-size: 20px; font-weight: 700; color: var(--color-navy); line-height: 1.4; }
+.product-tag { font-size: 14px; color: var(--color-text-sub); margin: 2px 0 8px; }
+.product-desc { font-size: 16px; line-height: 1.7; margin-bottom: 12px; }
+.product-more { margin-top: auto; align-self: flex-end; font-size: 15px; font-weight: 700; color: var(--color-navy); text-decoration: underline; padding: 8px 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
 /* ===== 5. 導入事例 ===== */
 #case { padding: var(--space-section) 0; background: var(--color-cream); }
 .case-store { font-size: 15px; color: var(--color-text-sub); margin-bottom: 24px; }
@@ -515,6 +539,8 @@ footer { padding: 40px 0 calc(40px + var(--safe-bottom) + var(--follow-h)); bord
   .ba-visual { max-width: 220px; }
   .ba-arrow { font-size: 28px; }
   .ba-closing { font-size: 40px; margin-top: 32px; }
+
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
 
   .works-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .works-item { margin-bottom: 0; }
